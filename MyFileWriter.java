@@ -3,8 +3,19 @@ import java.nio.file.*;
 import java.nio.charset.StandardCharsets;
 
 public class MyFileWriter {
-    private static void printTotalFileSize(String... fileNames) {
-        System.out.println("Total size of all files: ...TBD... bytes");
+    // Calculate and print the file size using the File class
+    private static void printFileSize(String fileName) {
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader(fileName));
+            int charCount = 0;
+            while (reader.read() > -1) {
+                charCount++;
+            }
+            reader.close();
+            System.out.println(charCount);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     static void createSecretFile() {
@@ -76,5 +87,7 @@ public class MyFileWriter {
 
         createSecretFile();
         createRegularFile();
+
+        printFileSize("example1.txt");
     }
 }
