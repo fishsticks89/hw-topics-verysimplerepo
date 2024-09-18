@@ -1,9 +1,12 @@
-
 import java.io.*;
 import java.nio.file.*;
 import java.nio.charset.StandardCharsets;
 
 public class MyFileWriter {
+    private static void printTotalFileSize(String... fileNames) {
+        System.out.println("Total size of all files: ...TBD... bytes");
+    }
+
     static void createSecretFile() {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(".secretpassword.txt"))) {
             final var secretpassword = "heHEHE";
